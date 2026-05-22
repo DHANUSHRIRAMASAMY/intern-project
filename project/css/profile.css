@@ -1,0 +1,76 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-family: 'Segoe UI', sans-serif;
+  padding: 40px 0;
+}
+
+.profile-card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 36px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+}
+
+.profile-card h3 {
+  font-weight: 700;
+  color: #1a1a2e;
+}
+
+.profile-card label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #444;
+  margin-bottom: 5px;
+}
+
+.profile-card .form-control {
+  border-radius: 8px;
+  padding: 10px 14px;
+  border: 1.5px solid #e0e0e0;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+
+.profile-card .form-control:focus {
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+}
+
+.profile-card .form-control:disabled {
+  background-color: #f8f9fa;
+  color: #333;
+}
+
+.btn-save {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  border: none;
+  border-radius: 8px;
+  padding: 11px;
+  font-weight: 600;
+  font-size: 15px;
+  color: #fff;
+  transition: opacity 0.2s;
+}
+
+.btn-save:hover {
+  opacity: 0.9;
+  color: #fff;
+}
+
+.btn-outline-primary {
+  border-color: #667eea;
+  color: #667eea;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.btn-outline-primary:hover {
+  background: #667eea;
+  color: #fff;
+}
