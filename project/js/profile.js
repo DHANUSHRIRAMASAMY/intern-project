@@ -36,6 +36,13 @@ $(document).ready(function () {
     }
   });
 
+  // Logout
+  $('#logoutBtn').on('click', function () {
+    localStorage.removeItem('session_token');
+    localStorage.removeItem('user_email');
+    window.location.href = 'login.html';
+  });
+
   // Edit button — enable all fields
   $('#editBtn').on('click', function () {
     $('#profileForm input:not(#email), #profileForm textarea').prop('disabled', false);

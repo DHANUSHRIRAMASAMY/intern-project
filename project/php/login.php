@@ -19,8 +19,13 @@ $stmt->store_result();
 $stmt->bind_result($id, $hashed_password);
 $stmt->fetch();
 
-if ($stmt->num_rows === 0 || !password_verify($password, $hashed_password)) {
-    echo json_encode(["status" => "error", "message" => "Invalid email or password"]);
+if ($stmt->num_rows === 0) {
+    echo json_encode(["status" => "error", "message" => "Email not registered"]);
+    exit;
+}
+
+if (!password_verify($password, $hashed_password)) {
+    echo json_encode(["status" => "error", "message" => "Incorrect password."]);
     exit;
 }
 
@@ -30,10 +35,10 @@ $conn->close();
 // Create session token
 $token = bin2hex(random_bytes(32));
 
-// Store token in Redis with 1 hour expiry
+// Store token in Redis with 24 hour expiry
 $redis = new Redis();
 $redis->connect('127.0.0.1', 6379);
-$redis->setex($token, 3600, $email);
+$redis->setex($token, 86400, $email);
 
 echo json_encode(["status" => "success", "token" => $token]);
 ?>

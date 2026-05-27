@@ -1,5 +1,11 @@
 $(document).ready(function () {
 
+  // If already logged in, go to profile
+  if (localStorage.getItem('session_token')) {
+    window.location.href = 'profile.html';
+    return;
+  }
+
   $('#loginForm').on('submit', function (e) {
     e.preventDefault();
 

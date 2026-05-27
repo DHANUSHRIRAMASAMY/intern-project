@@ -19,6 +19,9 @@ if (!$email) {
     exit;
 }
 
+// Refresh token expiry on every request
+$redis->expire($token, 86400);
+
 // Connect to MongoDB
 $mongo      = new MongoDB\Client("mongodb://localhost:27017");
 $collection = $mongo->intern_db->profiles;
